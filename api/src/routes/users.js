@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Router } from "express";
+import { axiosApi } from "../axiosApi.js";
 import { CLIENT_ID, CLIENT_SECRET } from "../config/config.js";
 import {
   GITHUB_ACCESS_TOKEN,
@@ -47,7 +48,7 @@ userRouter.get("/me", async (req, res, next) => {
       return res.status(401).send({ error: "Unauthorized" });
     }
 
-    const response = await axios.get("https://api.github.com/user", {
+    const response = await axiosApi.get("/user", {
       headers: { Authorization: `Bearer ${access_token}` },
     });
 
