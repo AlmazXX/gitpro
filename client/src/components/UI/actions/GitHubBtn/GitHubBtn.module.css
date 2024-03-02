@@ -1,0 +1,17 @@
+.github_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.github_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1677ff;
+  color: #fff;
+}
+
+.github_icon {
+  margin-inline-end: 0.5rem;
+}
