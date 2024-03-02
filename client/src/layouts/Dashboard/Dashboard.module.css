@@ -1,0 +1,8 @@
+.container {
+  box-sizing: content-box;
+  max-width: 1200px;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 30px 15px;
+}

@@ -1,7 +1,8 @@
-import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { Router } from './routes';
 
 function App() {
-  return <React.Fragment>Hello world</React.Fragment>;
+  return <RouterProvider router={Router} />;
 }
 
 export default App;
