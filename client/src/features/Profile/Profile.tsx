@@ -1,4 +1,5 @@
-import { Company, Email, Follows, Location, Url } from '../../components/icons';
+import { Link } from 'react-router-dom';
+import { Company, Edit, Email, Follows, Location, Repository, Url } from '../../components/icons';
 import { useAppSelector } from '../../hooks';
 import { selectUser } from '../../store/userSlice';
 import { formatNumber } from '../../utils';
@@ -23,6 +24,14 @@ export const Profile = () => {
           <h1 className={styles.profile_name}>{user?.name}</h1>
           <span className={styles.profile_login}>{user?.login}</span>
         </div>
+        <div className={styles.profile_actions}>
+          <Link to="/repositories">
+            <Repository /> <span>Repositories</span>
+          </Link>
+          <Link to="/edit">
+            <Edit /> <span>Edit</span>
+          </Link>
+        </div>
       </div>
       <div className={styles.profile_additional}>
         {user?.bio && (
@@ -31,11 +40,11 @@ export const Profile = () => {
           </div>
         )}
         <div className={styles.profile_follows}>
-          <a href={user?.followers_url}>
+          <a href={user?.followers_url} target="_blank" rel="noreferrer">
             <Follows /> <span>{formatNumber(user?.followers)}</span> followers
           </a>{' '}
           ·{' '}
-          <a href={user?.following_url}>
+          <a href={user?.following_url} target="_blank" rel="noreferrer">
             <span>{formatNumber(user?.following)}</span> following
           </a>
         </div>
@@ -61,7 +70,9 @@ export const Profile = () => {
           {user?.html_url && (
             <li className={styles.profile_detail}>
               <Url />
-              <a href={user?.html_url}>{user?.html_url}</a>
+              <a href={user?.html_url} target="_blank" rel="noreferrer">
+                {user?.html_url}
+              </a>
             </li>
           )}
         </ul>

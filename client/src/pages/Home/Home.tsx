@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
+import Page from '../../components/UI/wrappers/Page';
+import { Profile } from '../../features';
 import { useAppDispatch } from '../../hooks';
 import { getUserData } from '../../store/userSlice';
-import styles from './Home.module.css';
-import { Profile } from '../../features';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
@@ -12,11 +12,8 @@ export const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className={styles.home}>
-      <div className={styles.home_side}>
-        <Profile />
-      </div>
-      <div className={styles.home_main}>main</div>
-    </div>
+    <Page title="Profile">
+      <Profile />
+    </Page>
   );
 };

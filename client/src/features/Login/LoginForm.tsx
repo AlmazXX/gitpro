@@ -4,17 +4,17 @@ import styles from './LoginForm.module.css';
 
 export const LoginForm = () => {
   return (
-    <div className={styles.card}>
+    <div className={styles.login}>
       <div>
-        <img src={LoginImage} className={styles.card_image} />
+        <img src={LoginImage} className={styles.login_image} />
       </div>
-      <div className={styles.card_body}>
-        <h6 className={styles.card_title}>Please login via GitHub</h6>
-        <p className={styles.card_description}>
+      <div className={styles.login_body}>
+        <h6 className={styles.login_title}>Please login via GitHub</h6>
+        <p className={styles.login_description}>
           In order to access the GitPro, you need to login with your GitHub account
         </p>
       </div>
-      <ul className={styles.card_actions}>
+      <ul className={styles.login_actions}>
         <li style={{ width: '100%' }}>
           <GitHubButton />
         </li>

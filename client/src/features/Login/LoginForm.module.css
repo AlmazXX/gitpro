@@ -1,28 +1,23 @@
-.card {
-  width: 320px;
-  background: #fff;
-  color: #000;
-  font-size: 1.5rem;
-  border: 1px solid #f0f0f0;
-  border-radius: 8px;
+.login {
+  width: 290px;
 }
 
-.card_image {
+.login_image {
   display: block;
   width: 100px;
-  margin: 30px auto 20px;
+  margin: 15px auto 20px;
 }
 
-.card_body {
+.login_body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   text-align: center;
 }
 
-.card_title {
+.login_title {
   font-size: 1rem;
   font-weight: 600;
   white-space: nowrap;
@@ -30,11 +25,11 @@
   margin-bottom: 8px;
 }
 
-.card_description {
+.login_description {
   font-size: 0.875rem;
   color: rgba(0, 0, 0, 0.45);
 }
 
-.card_actions li {
+.login_actions li {
   margin: 0.75rem 0;
 }
