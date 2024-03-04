@@ -1,10 +1,20 @@
 import { Outlet } from 'react-router-dom';
-import styles from './Dashboard.module.css';
+import Header from '../../components/UI/header/Header';
+import Wrapper from '../../components/UI/wrappers/Wrapper';
 
 export const Dashboard = () => {
   return (
-    <div className={styles.container}>
-      <Outlet />
-    </div>
+    <>
+      <header>
+        <Wrapper>
+          <Header />
+        </Wrapper>
+      </header>
+      <main>
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
+      </main>
+    </>
   );
 };
