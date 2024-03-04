@@ -1,0 +1,37 @@
+.search_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+  row-gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #000;
+}
+
+.search_form {
+  position: relative;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.search_form input {
+  width: 100%;
+  padding: 1rem;
+  padding-left: 2rem;
+  background-color: #242424;
+  border-radius: 4px;
+  border: 0;
+  font-size: inherit;
+}
+
+.search_form svg {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translate(-50%, -50%);
+  fill: currentColor;
+}
+
+.search_count {
+  font-size: 1.2rem;
+}

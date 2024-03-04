@@ -1,2 +1,12 @@
-export { LoginForm } from './Login/LoginForm';
-export { Profile } from './Profile/Profile';
+export { LoginForm } from './Auth/LoginForm';
+export { LoginBtn } from './Auth/LoginBtn';
+export { LogoutBtn } from './Auth/LogoutBtn';
+export { Repo } from './Repositories/Repo';
+export { ReposList } from './Repositories/ReposList';
+export { ReposToggler } from './Repositories/ReposToggler';
+export { SearchCount } from './Search/SearchCount';
+export { SearchForm } from './Search/SearchForm';
+export { SearchHead } from './Search/SearchHead';
+export { User } from './Users/User';
+export { UserEdit } from './Users/UserEdit';
+export { UsersList } from './Users/UsersList';
