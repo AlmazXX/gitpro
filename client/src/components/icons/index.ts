@@ -6,3 +6,5 @@ export { Follows } from './Follows';
 export { Company } from './Company';
 export { Repository } from './Repository';
 export { Edit } from './Edit';
+export { Search } from './Search';
+export { Loader } from './Loader';
