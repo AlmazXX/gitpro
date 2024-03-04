@@ -1,19 +1,17 @@
 import { useEffect } from 'react';
-import Page from '../../components/UI/wrappers/Page';
-import { Profile } from '../../features';
-import { useAppDispatch } from '../../hooks';
-import { getUserData } from '../../store/userSlice';
+import { Loader } from '../../components/icons';
+import { User } from '../../features';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { getUser, selectUser, selectUserLoading } from '../../store/userSlice';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
+  const loading = useAppSelector(selectUserLoading);
 
   useEffect(() => {
-    dispatch(getUserData());
+    dispatch(getUser());
   }, [dispatch]);
 
-  return (
-    <Page title="Profile">
-      <Profile />
-    </Page>
-  );
+  return loading ? <Loader /> : <User user={user} />;
 };
