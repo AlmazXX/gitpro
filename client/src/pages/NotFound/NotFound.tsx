@@ -1,10 +1,10 @@
+import Empty from '../../components/UI/empty/Empty';
 import Wrapper from '../../components/UI/wrappers/Wrapper';
-import { LoginForm } from '../../features';
 
-export function Login() {
+export const NotFound = () => {
   return (
     <Wrapper>
-      <LoginForm />
+      <Empty />
     </Wrapper>
   );
-}
+};
