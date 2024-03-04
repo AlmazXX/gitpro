@@ -1,0 +1,130 @@
+.user__edit {
+  width: 280px;
+}
+
+.user__edit_input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.user__edit_input :is(input, textarea) {
+  padding: 1rem;
+  background-color: #242424;
+  border-radius: 4px;
+  border: 0;
+}
+
+.user__edit_submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user__card {
+  flex: 1 1 400px;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+.user__card_avatar {
+  display: inline-block;
+  max-width: 200px;
+  max-height: 100%;
+  box-shadow: 0 0 0 1px rgba(240, 246, 252, 0.1);
+  border-radius: 50%;
+  line-height: 1;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 8px;
+}
+
+.user__card_personal {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 0.5rem;
+}
+
+.user__card_name {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.user__card_login {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.user__card_actions {
+  display: flex;
+  column-gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.user__card_actions a {
+  font-size: 0.875rem;
+  padding-left: 1.5rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.user__card svg {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.user__card_actions svg {
+  margin-left: -1.5rem;
+}
+
+.user__card_bio {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.user__card_follows {
+  margin-bottom: 0.5rem;
+}
+
+.user__card_follows a {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.user__card_follows a span {
+  font-weight: 600;
+}
+
+.user__card_detail {
+  font-size: 0.875rem;
+  padding-left: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+.user__card_detail :is(a, span) {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.user__card_detail svg {
+  float: left;
+  width: 1rem;
+  margin-top: 0.25rem;
+  margin-left: -1.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.user__list {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
