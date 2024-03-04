@@ -1,14 +1,15 @@
-.login {
+.auth {
   width: 290px;
+  margin: 0 auto;
 }
 
-.login_image {
+.auth_image {
   display: block;
   width: 100px;
   margin: 15px auto 20px;
 }
 
-.login_body {
+.auth_body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -17,7 +18,7 @@
   text-align: center;
 }
 
-.login_title {
+.auth_title {
   font-size: 1rem;
   font-weight: 600;
   white-space: nowrap;
@@ -25,11 +26,33 @@
   margin-bottom: 8px;
 }
 
-.login_description {
+.auth_description {
   font-size: 0.875rem;
   color: rgba(0, 0, 0, 0.45);
 }
 
-.login_actions li {
+.auth_actions li {
   margin: 0.75rem 0;
+}
+
+.auth_logout {
+  margin-left: auto;
+}
+
+.auth__gh_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth__gh_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1677ff;
+  color: #fff;
+}
+
+.auth__gh_icon {
+  margin-inline-end: 0.5rem;
 }
