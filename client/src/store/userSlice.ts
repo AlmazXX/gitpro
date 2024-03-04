@@ -36,12 +36,21 @@ const userSlice = createSlice({
         state.loading = false;
       })
       .addCase(logoutUser.pending, (state) => {
-        state.loading = true;
+        state.logout = true;
       })
       .addCase(logoutUser.fulfilled, (state) => {
-        state.loading = false;
+        state.logout = false;
       })
       .addCase(logoutUser.rejected, (state) => {
+        state.logout = false;
+      })
+      .addCase(editUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(editUser.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(editUser.rejected, (state) => {
         state.loading = false;
       })
       .addCase(searchUsers.pending, (state) => {
@@ -95,5 +104,6 @@ export const searchUsers = createAsyncThunk('/search', async (value: string) => 
 export const selectUser = (state: RootState) => state.user.user;
 export const selectUsers = (state: RootState) => state.user.list;
 export const selectUserLoading = (state: RootState) => state.user.loading;
+export const selectUserLogingOut = (state: RootState) => state.user.logout;
 export const selectUsersTotalCount = (state: RootState) => state.user.total_count;
 export default userSlice.reducer;

@@ -2,6 +2,8 @@ import { FC, useState } from 'react';
 import { PartialUser } from '../../types';
 import { eventHandler, submitHandler } from '../../utils';
 import styles from './Users.module.css';
+import { useAppSelector } from '../../hooks';
+import { selectUserLoading } from '../../store';
 
 interface Props {
   user: PartialUser;
@@ -11,6 +13,7 @@ interface Props {
 const initialState: PartialUser = { name: '', company: '', location: '', bio: '' };
 
 export const UserEdit: FC<Props> = ({ user = initialState, onSubmit }) => {
+  const loading = useAppSelector(selectUserLoading);
   const { 0: state, 1: setState } = useState<PartialUser>(user);
   const onChange = eventHandler(setState);
   const onFormSubmit = submitHandler(onSubmit, state);
@@ -34,7 +37,9 @@ export const UserEdit: FC<Props> = ({ user = initialState, onSubmit }) => {
         <textarea name="bio" id="bio" value={state.bio} onChange={onChange} />
       </div>
       <div className={styles.user__edit_submit}>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={loading}>
+          Submit
+        </button>
       </div>
     </form>
   );

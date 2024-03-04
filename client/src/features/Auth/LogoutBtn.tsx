@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../hooks';
-import { logoutUser } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { logoutUser, selectUserLogingOut } from '../../store';
 import styles from './Auth.module.css';
 
 export const LogoutBtn = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const loading = useAppSelector(selectUserLogingOut);
 
   const onClick = () => {
     dispatch(logoutUser());
@@ -13,7 +14,7 @@ export const LogoutBtn = () => {
   };
 
   return (
-    <button onClick={onClick} className={styles.auth_logout}>
+    <button onClick={onClick} className={styles.auth_logout} disabled={loading}>
       Log out
     </button>
   );
