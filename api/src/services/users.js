@@ -5,6 +5,7 @@ import { CLIENT_ID, CLIENT_SECRET } from "../config/config.js";
 import {
   GITHUB_ACCESS_TOKEN,
   GITHUB_ACCESS_TOKEN_REQUEST_URL,
+  CLIENT_URL,
 } from "../constants.js";
 
 class UserService {
@@ -33,7 +34,7 @@ class UserService {
           maxAge: new Date().getTime() + 5 * 1000,
           path: "/",
         })
-        .redirect("http://localhost:5173/app");
+        .redirect(`${CLIENT_URL}/app`);
       return res.end();
     } catch (error) {
       if (isAxiosError(error) && error.response && error.response.status) {
@@ -82,7 +83,7 @@ class UserService {
         bio: data.bio || "",
         html_url: data.html_url,
         followers_url: data.followers_url,
-        following_url: data.following_url,
+        following_url: data.following_url.split("{/other_user}")[0],
         followers: data.followers,
         following: data.following,
       };
