@@ -6,6 +6,10 @@ import { Login, NotFound } from '../pages';
 
 export const Router = createBrowserRouter([
   {
+    path: '/',
+    element: <Navigate to="/app" />,
+  },
+  {
     path: '/app',
     element: (
       <PrivateRoute>
