@@ -28,9 +28,9 @@ Follow these steps to set up and run the project locally.
 
 ### Prerequisites
 
-- Git
-- Node.js
-- npm or yarn
+- Git (version: >= 2.39.3)
+- Node.js (version: >= 20.9.0)
+- npm or yarn (version: >= 10.1.0)
 
 ### Installation
 
