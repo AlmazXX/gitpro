@@ -1,11 +1,11 @@
 import axios, { isAxiosError } from "axios";
 import { ApiError } from "../ApiError.js";
 import { axiosApi } from "../axiosApi.js";
-import { CLIENT_ID, CLIENT_SECRET } from "../config/config.js";
+import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from "../config/config.js";
 import {
-  GITHUB_ACCESS_TOKEN,
-  GITHUB_ACCESS_TOKEN_REQUEST_URL,
   CLIENT_URL,
+  GITHUB_ACCESS_TOKEN,
+  GITHUB_LOGIN_ACCESS_TOKEN_URL,
 } from "../constants.js";
 
 class UserService {
@@ -14,21 +14,31 @@ class UserService {
   async authorize(req, res) {
     try {
       const { code } = req.query;
-      const gitUrl = new URL(GITHUB_ACCESS_TOKEN_REQUEST_URL);
-      const gitQuery = new URLSearchParams({
-        client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET,
-        code,
-      });
-      gitUrl.search = gitQuery;
+      const options = {
+        params: {
+          client_id: GITHUB_CLIENT_ID,
+          client_secret: GITHUB_CLIENT_SECRET,
+          code,
+        },
+        headers: {
+          Accept: "application/json",
+        },
+      };
 
-      const response = await axios.post(gitUrl);
-      const { data } = response;
+      const response = await axios.post(
+        GITHUB_LOGIN_ACCESS_TOKEN_URL,
+        {},
+        options
+      );
 
-      const access_token = new URLSearchParams(data).get(GITHUB_ACCESS_TOKEN);
+      if (response.data.error) {
+        throw new ApiError(response.data.error_description, 401);
+      }
+
+      const { access_token } = response.data;
 
       res
-        .status(204)
+        .status(307)
         .cookie(GITHUB_ACCESS_TOKEN, access_token, {
           sameSite: "strict",
           maxAge: new Date().getTime() + 5 * 1000,
