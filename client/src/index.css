@@ -14,6 +14,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  color: rgba(255, 255, 255);
+  background-color: #242424;
+}
+
 *,
 *:before,
 *:after {
