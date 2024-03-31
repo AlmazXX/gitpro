@@ -64,7 +64,7 @@ Follow these steps to set up and run the project locally.
     cp .env.example .env
 ```
 
-Replace the placeholder values in the .env files with the values provided in the attached file of my letter to Marina Avtaeva (Attractor Software HR).
+Replace the placeholder values in the .env files with the values you can obtain after creating an [OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
 
 5. Navigate back to the root directory:
 
