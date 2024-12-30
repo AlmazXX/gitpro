@@ -1,17 +1,17 @@
-import { Router } from "express";
-import UserService from "../services/users.js";
+import { Router } from 'express';
+import { auth } from '../middlewares/auth.js';
+import { exceptionHandler } from '../middlewares/exception-handler.js';
+import { UserService } from '../services/users.js';
 
-const userRouter = Router();
+export const userRouter = Router();
 const userService = new UserService();
 
-userRouter.get("/callback", userService.authorize);
+userRouter.get('/callback', userService.authorize, exceptionHandler);
 
-userRouter.get("/me", userService.getSelf);
+userRouter.get('/me', auth, userService.getSelf, exceptionHandler);
 
-userRouter.patch("/me", userService.updateSelf);
+userRouter.patch('/me', auth, userService.updateSelf, exceptionHandler);
 
-userRouter.delete("/me", userService.unauthorize);
+userRouter.delete('/me', auth, userService.unauthorize, exceptionHandler);
 
-userRouter.get("/search", userService.searchUsers);
-
-export default userRouter;
+userRouter.get('/search', auth, userService.searchUsers, exceptionHandler);

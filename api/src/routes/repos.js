@@ -1,11 +1,11 @@
-import { Router } from "express";
-import RepoService from "../services/repos.js";
+import { Router } from 'express';
+import { auth } from '../middlewares/auth.js';
+import { exceptionHandler } from '../middlewares/exception-handler.js';
+import { RepoService } from '../services/repos.js';
 
-const reposRouter = Router();
+export const reposRouter = Router();
 const repoService = new RepoService();
 
-reposRouter.get("/own", repoService.getOwnRepos);
+reposRouter.get('/own', auth, repoService.getOwnRepos, exceptionHandler);
 
-reposRouter.get("/", repoService.getRepos);
-
-export default reposRouter;
+reposRouter.get('/', auth, repoService.getRepos, exceptionHandler);
