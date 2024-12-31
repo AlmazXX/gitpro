@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { UserEdit } from '../../features';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { selectUser } from '../../store';
-import { editUser, getUser } from '../../store/userSlice';
+import { useAppDispatch } from '../../hooks';
+import { editUser, getUser, useUser } from '../../store';
 import { PartialUser } from '../../types';
 
 export const Edit = () => {
   const dispatch = useAppDispatch();
-  const user = useAppSelector(selectUser);
+  const { user } = useUser();
 
   const onSubmit = (user: PartialUser) => {
     dispatch(editUser(user));

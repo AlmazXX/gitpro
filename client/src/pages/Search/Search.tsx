@@ -1,18 +1,17 @@
 import { Loader } from '../../components/icons';
 import { SearchHead, UsersList } from '../../features';
-import { useAppDispatch, useAppSelector, useDebounce } from '../../hooks';
-import { searchUsers, selectUserLoading, selectUsers, selectUsersTotalCount } from '../../store';
+import { useAppDispatch, useDebounce } from '../../hooks';
+import { searchUsers, useUser } from '../../store';
 
 export const Search = () => {
-  const users = useAppSelector(selectUsers);
-  const loading = useAppSelector(selectUserLoading);
-  const totalCount = useAppSelector(selectUsersTotalCount);
+  const { list: users, loading, total_count } = useUser();
+
   const dispatch = useAppDispatch();
   const debouncedSearch = useDebounce((value) => dispatch(searchUsers(value)), 500);
 
   return (
     <>
-      <SearchHead totalCount={totalCount} debouncedSearch={debouncedSearch} />
+      <SearchHead totalCount={total_count} debouncedSearch={debouncedSearch} />
       {loading ? <Loader /> : <UsersList users={users} />}
     </>
   );

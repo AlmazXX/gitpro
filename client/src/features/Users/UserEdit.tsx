@@ -1,9 +1,8 @@
 import { FC, useState } from 'react';
+import { useUser } from '../../store';
 import { PartialUser } from '../../types';
 import { eventHandler, submitHandler } from '../../utils';
 import styles from './Users.module.css';
-import { useAppSelector } from '../../hooks';
-import { selectUserLoading } from '../../store';
 
 interface Props {
   user: PartialUser;
@@ -13,7 +12,7 @@ interface Props {
 const initialState: PartialUser = { name: '', company: '', location: '', bio: '' };
 
 export const UserEdit: FC<Props> = ({ user = initialState, onSubmit }) => {
-  const loading = useAppSelector(selectUserLoading);
+  const { loading } = useUser();
   const { 0: state, 1: setState } = useState<PartialUser>(user);
   const onChange = eventHandler(setState);
   const onFormSubmit = submitHandler(onSubmit, state);

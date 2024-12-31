@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { logoutUser, selectUserLogingOut } from '../../store';
+import { useAppDispatch } from '../../hooks';
+import { logoutUser, useUser } from '../../store';
 import styles from './Auth.module.css';
 
 export const LogoutBtn = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const loading = useAppSelector(selectUserLogingOut);
+  const { loading } = useUser();
 
   const onClick = () => {
     dispatch(logoutUser());

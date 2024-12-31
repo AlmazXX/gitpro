@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 import axiosApi from '../axiosApi';
 import { IRepo } from '../types';
 import { RootState } from './store';
@@ -62,7 +63,6 @@ export const getRepos = createAsyncThunk('/get', async (user: string) => {
   }
 });
 
-export const selectRepos = (state: RootState) => state.repos.list;
-export const selectReposLoading = (state: RootState) => state.repos.loading;
+export const useRepo = () => useSelector((store: RootState) => store.repos);
 
 export default reposSlice.reducer;

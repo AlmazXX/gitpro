@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 import axiosApi from '../axiosApi';
 import { IUser, PartialUser } from '../types';
 import { RootState } from './store';
@@ -101,9 +102,5 @@ export const searchUsers = createAsyncThunk('/search', async (value: string) => 
   }
 });
 
-export const selectUser = (state: RootState) => state.user.user;
-export const selectUsers = (state: RootState) => state.user.list;
-export const selectUserLoading = (state: RootState) => state.user.loading;
-export const selectUserLogingOut = (state: RootState) => state.user.logout;
-export const selectUsersTotalCount = (state: RootState) => state.user.total_count;
+export const useUser = () => useSelector((store: RootState) => store.user);
 export default userSlice.reducer;

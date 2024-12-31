@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Loader } from '../../components/icons';
 import { ReposList, ReposToggler } from '../../features';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { getOwnRepos, selectRepos, selectReposLoading } from '../../store';
+import { useAppDispatch } from '../../hooks';
+import { getOwnRepos, useRepo } from '../../store';
 
 export const OwnRepos = () => {
   const dispatch = useAppDispatch();
-  const repos = useAppSelector(selectRepos);
-  const loading = useAppSelector(selectReposLoading);
+  const { list: repos, loading } = useRepo();
   const { 0: isPrivate, 1: setIsPrivate } = useState(false);
 
   useEffect(() => {

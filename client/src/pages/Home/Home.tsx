@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { Loader } from '../../components/icons';
 import { User } from '../../features';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { getUser, selectUser, selectUserLoading } from '../../store/userSlice';
+import { useAppDispatch } from '../../hooks';
+import { getUser, useUser } from '../../store';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
-  const user = useAppSelector(selectUser);
-  const loading = useAppSelector(selectUserLoading);
+  const { user, loading } = useUser();
 
   useEffect(() => {
     dispatch(getUser());

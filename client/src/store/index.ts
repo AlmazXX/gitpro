@@ -1,11 +1,2 @@
-export {
-  getUser,
-  logoutUser,
-  searchUsers,
-  selectUser,
-  selectUsers,
-  selectUserLoading,
-  selectUserLogingOut,
-  selectUsersTotalCount,
-} from './userSlice';
-export { getOwnRepos, selectRepos, selectReposLoading } from './reposSlice';
+export { getOwnRepos, getRepos, useRepo } from './reposSlice';
+export { editUser, getUser, logoutUser, searchUsers, useUser } from './userSlice';

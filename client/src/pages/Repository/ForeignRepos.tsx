@@ -2,14 +2,12 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader } from '../../components/icons';
 import { ReposList } from '../../features';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { selectRepos } from '../../store';
-import { getRepos, selectReposLoading } from '../../store/reposSlice';
+import { useAppDispatch } from '../../hooks';
+import { getRepos, useRepo } from '../../store';
 
 export const ForeignRepos = () => {
   const dispatch = useAppDispatch();
-  const repos = useAppSelector(selectRepos);
-  const loading = useAppSelector(selectReposLoading);
+  const { list: repos, loading } = useRepo();
   const { user = '' } = useParams();
 
   useEffect(() => {
