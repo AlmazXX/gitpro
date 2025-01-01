@@ -49,7 +49,9 @@ export class UserService {
           maxAge: new Date().getTime() + 5 * 1000,
           path: '/',
         })
-        .redirect(`${CLIENT_URL}/app`);
+        .redirect(
+          `${process.env.NODE_ENV === 'development' ? CLIENT_URL : ''}/app`
+        );
       return res.end();
     } catch (error) {
       return next(error);
