@@ -8,14 +8,17 @@ export default defineConfig(({ mode }) => {
   const BASE_URL = String(env.VITE_API_BASE_URL);
 
   return {
-    base: '/',
     plugins: [react()],
     server: {
       host: true,
       port: PORT,
       strictPort: true,
       proxy: {
-        target: BASE_URL,
+        '/api': {
+          changeOrigin: true,
+          target: BASE_URL,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
       },
     },
   };

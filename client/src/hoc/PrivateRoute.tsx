@@ -11,7 +11,7 @@ export const PrivateRoute: FC<PrivateRouteProps> = ({ children }) => {
   const isAuthorized = getGithubAccessToken();
 
   if (!isAuthorized) {
-    return <Navigate to="/app/login" state={{ from: location }} />;
+    return <Navigate to="/login" state={{ from: location }} />;
   }
 
   return children;

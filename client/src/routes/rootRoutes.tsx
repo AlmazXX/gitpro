@@ -1,24 +1,24 @@
-import { Edit, Home, OwnRepos, ForeignRepos, Search } from '../pages';
+import { Edit, ForeignRepos, Home, OwnRepos, Search } from '../pages';
 
 export const rootRoutes = [
   {
-    path: '/app/',
+    path: '/',
     element: <Home />,
   },
   {
-    path: '/app/repositories',
+    path: '/repositories',
     element: <OwnRepos />,
   },
   {
-    path: '/app/edit',
+    path: '/edit',
     element: <Edit />,
   },
   {
-    path: '/app/search',
+    path: '/search',
     element: <Search />,
   },
   {
-    path: '/app/repositories/:user',
+    path: '/repositories/:user',
     element: <ForeignRepos />,
   },
 ];

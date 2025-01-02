@@ -50,7 +50,7 @@ export class UserService {
           path: '/',
         })
         .redirect(
-          `${process.env.NODE_ENV === 'development' ? CLIENT_URL : ''}/app`
+          `${process.env.NODE_ENV === 'development' ? CLIENT_URL : ''}`
         );
       return res.end();
     } catch (error) {

@@ -35,11 +35,11 @@ export const User: FC<Props> = ({ user }) => {
           </div>
         )}
         <div className={styles.user__card_actions}>
-          <Link to={`/app/repositories/${user.name ? '' : user.login}`}>
+          <Link to={`/repositories/${user.name ? '' : user.login}`}>
             <Repository /> <span>Repositories</span>
           </Link>
           {user.name ? (
-            <Link to="/app/edit">
+            <Link to="/edit">
               <Edit /> <span>Edit</span>
             </Link>
           ) : null}

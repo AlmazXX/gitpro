@@ -10,7 +10,7 @@ export const LogoutBtn = () => {
 
   const onClick = () => {
     dispatch(logoutUser());
-    navigate('/app/login');
+    navigate('/login');
   };
 
   return (
